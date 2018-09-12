@@ -91,7 +91,8 @@ labelBaby <- c("lower",
      colnames(outTmp) <- labelBaby
      
      choiceSum <- rowSums(outTmp)
-     pOutTmp <- outTmp/choiceSum
+     pOutTmp <- outTmp
+     for(mySweep in 1:ncol(pOutTmp)) pOutTmp[,mySweep] <- outTmp[,mySweep]/sum(outTmp[,mySweep])
      if(pTable) outTmp <- pOutTmp
      
      if(mKS == "none"){
